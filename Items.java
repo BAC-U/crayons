@@ -12,7 +12,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 @SuppressWarnings("unused")
 public class Item {
 	public static ItemStack giveCrayon(String color, ChatColor colorCode) {
-		ItemStack crayon = new ItemStack(Material.getMaterial(color.toUpperCase() + "_CANDLE"));
+		ItemStack crayon = new ItemStack(Material.getMaterial(color.toUpperCase() + "_CANDLE")); //Ruh roh code
 		ItemMeta meta = crayon.getItemMeta();
 		meta.setDisplayName(colorCode+"Crayon");
 		crayon.setItemMeta(meta);
@@ -85,8 +85,8 @@ public class Item {
 		if (color == "black") {
 			return ChatColor.BLACK;
 		}
-		
-		return ChatColor.WHITE;
+		//Gayming code
+		return ChatColor.WHITE; 
 	}
 	public static boolean arrayContainsString(String message, ArrayList<String> ref) {
 		for (String str : ref) {
