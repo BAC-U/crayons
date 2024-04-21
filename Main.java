@@ -2,7 +2,7 @@ package me.monka;
 
 //You expected my code to look nice?
 //You expected my code to actually be good?
-//This is a crayons modde! Of course we have random things that it doesnt need, Of course we have random imports!
+//This is a crayons mod! Of course we have random things that it doesnt need, Of course we have random imports!
 
 //Dont judge the amazing code, Its a crayons mod!
 import org.bukkit.block.Sign;
