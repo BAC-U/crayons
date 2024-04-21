@@ -116,8 +116,10 @@ public class Main extends JavaPlugin implements Listener {
     public void onClick(PlayerInteractEvent e) {
     	Player player = e.getPlayer();
     	ItemStack item = e.getItem();
+    	if (item == null) {
+    		return;
+    	}
     	if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-    		
     		if (item.getItemMeta().getDisplayName().toLowerCase().contains("crayon")) {
     			e.setCancelled(true);
     			PotionEffect confussion = new PotionEffect(PotionEffectType.CONFUSION,400,20);
@@ -126,13 +128,13 @@ public class Main extends JavaPlugin implements Listener {
     			player.addPotionEffect(confussion);
     			player.addPotionEffect(speed);
     			
-    			Random random = new Random();
+    			/*Random random = new Random();
     			if (random.nextInt(10) == 5) {
     				
-    				player.damage(random.nextInt(6),(Entity) DamageSource.builder(DamageType.STALAGMITE)); //<--- Why did I add this
+    				player.damage(random.nextInt(6),(Entity) DamageSource.builder(DamageType.STALAGMITE));
     				
-    			}
-    			player.getInventory().setItem(player.getInventory().getHeldItemSlot(), Item.removeItem(item, 1)); 
+    			}*/
+    			player.getInventory().setItem(player.getInventory().getHeldItemSlot(), Item.removeItem(item, 1));
     		}
     	}
     }
