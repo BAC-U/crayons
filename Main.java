@@ -129,10 +129,10 @@ public class Main extends JavaPlugin implements Listener {
     			Random random = new Random();
     			if (random.nextInt(10) == 5) {
     				
-    				player.damage(random.nextInt(6),(Entity) DamageSource.builder(DamageType.STALAGMITE));
+    				player.damage(random.nextInt(6),(Entity) DamageSource.builder(DamageType.STALAGMITE)); //<--- Why did I add this
     				
     			}
-    			player.getInventory().setItem(player.getInventory().getHeldItemSlot(), Item.removeItem(item, 1));
+    			player.getInventory().setItem(player.getInventory().getHeldItemSlot(), Item.removeItem(item, 1)); 
     		}
     	}
     }
