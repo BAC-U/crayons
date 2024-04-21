@@ -106,10 +106,6 @@ public class Main extends JavaPlugin implements Listener {
     	Inventory inv = player.getInventory();
     	String mainhand = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().toLowerCase();
     	String offhand = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().toLowerCase();
-    	/*ItemStack mainhand2 = e.getPlayer().getItemInUse();
-    	if (mainhand2 == null) {
-    		mainhand2 = new ItemStack(Material.BARREL);
-    	}*/
     	if (mainhand.contains("crayon") || offhand.contains("crayon")) {
     		e.setCancelled(true);
     		e.getBlock().setType(Material.AIR);
