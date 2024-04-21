@@ -89,9 +89,6 @@ public class Main extends JavaPlugin implements Listener {
 		Ref.add("dont feel great");
 		Ref.add("I need crayons, I love smoking crayons. They let me feel good");
 		Ref.add("crayon");
-		Ref.add("meth");
-		Ref.add("cocaine");
-		Ref.add("coke");
 		Ref.add("church"); //Why are you even looking at the code
 		if (config.getBoolean("customChat")) {
 		Bukkit.broadcastMessage(ChatColor.DARK_GRAY + e.getPlayer().getDisplayName() +": "+ChatColor.GRAY + e.getMessage());
