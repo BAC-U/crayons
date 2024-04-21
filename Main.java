@@ -5,6 +5,13 @@ package me.monka;
 //This is a crayons mod! Of course we added random things that it doesnt need, Of course we have random imports!
 
 //Dont judge the amazing code, Its a crayons mod!
+
+
+/*
+------------------------------------READ ME------------------------------------
+This contains inappropriate words!
+Just warning you now.
+*/
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.configuration.file.FileConfiguration;
