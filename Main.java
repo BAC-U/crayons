@@ -12,7 +12,7 @@ package me.monka;
 This contains inappropriate words!
 Just warning you now.
 */
-import org.bukkit.block.Sign;
+import org.bukkit.block.Sign; //Random imports go brrrrrr, (I'll fix this later)
 import org.bukkit.block.data.BlockData;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.damage.DamageSource;
@@ -89,19 +89,21 @@ public class Main extends JavaPlugin implements Listener {
 		Ref.add("dont feel great");
 		Ref.add("I need crayons, I love smoking crayons. They let me feel good");
 		Ref.add("crayon");
-		Ref.add("church"); //Why are you even looking at the code
+		Ref.add("meth");
+		Ref.add("cocaine");
+		Ref.add("coke");
+		Ref.add("church");
 		if (config.getBoolean("customChat")) {
 		Bukkit.broadcastMessage(ChatColor.DARK_GRAY + e.getPlayer().getDisplayName() +": "+ChatColor.GRAY + e.getMessage());
 		} else {
 			e.setCancelled(false);
 		}
-		if (Item.arrayContainsString(message, Ref)) {
+		if (Helper.arrayContainsString(message, Ref)) {
 			e.getPlayer().sendRawMessage(" ");
 			e.getPlayer().sendRawMessage(ChatColor.GRAY+"Need a pick me up?");
 			e.getPlayer().sendRawMessage(ChatColor.GRAY+"Down on your luck?");
 			e.getPlayer().sendRawMessage(ChatColor.GRAY+"Try"+ChatColor.LIGHT_PURPLE+" Crayons"+ChatColor.GRAY+", They give you the high you need to start you day");
-			String CrayonColor = Item.randomColor();
-			e.getPlayer().getInventory().addItem(Item.giveCrayon(CrayonColor,Item.getColorCodeFromString(CrayonColor)));
+			e.getPlayer().getInventory().addItem(Crayon.constructCrayonFromlist(Crayon.randomColor()));
 		}
 	}
     @EventHandler
@@ -123,23 +125,20 @@ public class Main extends JavaPlugin implements Listener {
     	if (item == null) {
     		return;
     	}
-    	if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-    		if (item.getItemMeta().getDisplayName().toLowerCase().contains("crayon")) {
-    			e.setCancelled(true);
-    			PotionEffect confussion = new PotionEffect(PotionEffectType.CONFUSION,400,20);
-    			PotionEffect speed = new PotionEffect(PotionEffectType.SPEED,400,20);
+    	if (e.getAction() == Action.RIGHT_CLICK_AIR && item.getItemMeta().getDisplayName().toLowerCase().contains("crayon")) {
+    		e.setCancelled(true);
+    		PotionEffect confussion = new PotionEffect(PotionEffectType.CONFUSION,400,20);
+    		PotionEffect speed = new PotionEffect(PotionEffectType.SPEED,400,20);
 
-    			player.addPotionEffect(confussion);
-    			player.addPotionEffect(speed);
-    			
-    			/*Random random = new Random();
-    			if (random.nextInt(10) == 5) {
-    				
-    				player.damage(random.nextInt(6),(Entity) DamageSource.builder(DamageType.STALAGMITE));
-    				
-    			}*/
-    			player.getInventory().setItem(player.getInventory().getHeldItemSlot(), Item.removeItem(item, 1));
-    		}
+    		player.addPotionEffect(confussion);
+    		player.addPotionEffect(speed);
+
+    		player.getInventory().setItem(player.getInventory().getHeldItemSlot(), Item.removeItem(item, 1));
+    	}
+    	if (e.getAction() == Action.RIGHT_CLICK_BLOCK && item.getItemMeta().getDisplayName().toLowerCase().contains("crayon")) {
+    		e.setCancelled(true);
+    		Block block = e.getClickedBlock();
     	}
     }
 }
+
